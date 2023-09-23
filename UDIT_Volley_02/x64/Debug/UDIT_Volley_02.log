@@ -1,0 +1,2 @@
+﻿Match.obj : error LNK2019: símbolo externo "struct SaveData __cdecl data(void)" (?data@@YA?AUSaveData@@XZ) sin resolver al que se hace referencia en la función "public: void __cdecl Match::SaveGame(char const *)" (?SaveGame@Match@@QEAAXPEBD@Z)
+F:\00_UDIT\TERCERO\ENTORNOS OPERATIVOS\PROYECTOS\UDIT_Volley_02\x64\Debug\UDIT_Volley_02.exe : fatal error LNK1120: 1 externos sin resolver
