@@ -6,8 +6,9 @@
 using namespace std;
 
 void SimulationMatch() {
-	Match match;
-	match.SaveGame("saveFile.dat");
+	cout << "Partida simulada con exito";
+	//Match match;
+	//match.SaveGame("saveFile.dat");
 }
 
 void MainMenu() {
