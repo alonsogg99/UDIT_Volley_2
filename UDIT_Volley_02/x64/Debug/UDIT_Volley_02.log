@@ -1,2 +1,4 @@
-﻿Match.obj : error LNK2019: símbolo externo "struct SaveData __cdecl data(void)" (?data@@YA?AUSaveData@@XZ) sin resolver al que se hace referencia en la función "public: void __cdecl Match::SaveGame(char const *)" (?SaveGame@Match@@QEAAXPEBD@Z)
-F:\00_UDIT\TERCERO\ENTORNOS OPERATIVOS\PROYECTOS\UDIT_Volley_02\x64\Debug\UDIT_Volley_02.exe : fatal error LNK1120: 1 externos sin resolver
+﻿  Match.cpp
+F:\00_UDIT\TERCERO\ENTORNOS OPERATIVOS\PROYECTOS\UDIT_Volley_02\UDIT_Volley_2\UDIT_Volley_02\Match.cpp(52,7): warning C4101: 'first_data': variable local sin referencia
+F:\00_UDIT\TERCERO\ENTORNOS OPERATIVOS\PROYECTOS\UDIT_Volley_02\UDIT_Volley_2\UDIT_Volley_02\Match.cpp(53,7): warning C4101: 'second_data': variable local sin referencia
+  UDIT_Volley_02.vcxproj -> F:\00_UDIT\TERCERO\ENTORNOS OPERATIVOS\PROYECTOS\UDIT_Volley_02\UDIT_Volley_2\x64\Debug\UDIT_Volley_02.exe

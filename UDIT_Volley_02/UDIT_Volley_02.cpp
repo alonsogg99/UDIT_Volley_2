@@ -5,26 +5,47 @@
 #include "Ball.h"
 using namespace std;
 
+unsigned int CreateGame() {
+	unsigned int newid = 0;
+	FILE* fp = fopen("gameIDs.dat", "r");
+	if (fp == nullptr) {
+		perror("No se pudo abrir el archivo\n");
+	}
+
+	return newid;
+}
+
+void Load() {
+	unsigned int id;
+	cout << "Introduce el ID de la partida que deseas cargar.\n";
+	cin >> id;
+	Match match;
+	match.LoadGame("saveFile.dat", id);
+}
+
 void SimulationMatch() {
-	cout << "Partida simulada con exito";
-	//Match match;
-	//match.SaveGame("saveFile.dat");
+	cout << "Partida simulada con exito\n";
+	Match match;
+	match.SaveGame("saveFile.dat", match.getId(), match.getPoints1(), match.getPoints2(), match.getPlayer1(), match.getPlayer2(), match.getBall());
 }
 
 void MainMenu() {
 	system("cls");
-	unsigned char choice = 0;
+	unsigned int choice;
 	cout << "UDIT VOLLEY\n";
 	cout << "==================\n";
 	cout << "1. Iniciar partida\n";
 	cout << "2. Cargar partida\n";
 	cout << "3. Simular partida\n";
-	cout << "4. Partida en línea\n";
+	cout << "4. Partida en linea\n";
 	cout << "5. Rankings\n";
 	cout << "6. Salir\n";
 	cin >> choice;
 	if (choice < 7 && choice > 0) {
 		switch (choice) {
+			case 2:
+				Load();
+				break;
 			case 3:
 				SimulationMatch();
 				break;
