@@ -1,16 +1,31 @@
 #pragma warning (disable : 4996)
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 #include "Match.h"
 #include "Player.h"
 #include "Ball.h"
 using namespace std;
 
 unsigned int CreateGame() {
-	unsigned int newid = 0;
-	FILE* fp = fopen("gameIDs.dat", "r");
+	FILE* fp = fopen("gameIDs.csv", "r+");
 	if (fp == nullptr) {
-		perror("No se pudo abrir el archivo\n");
+		fp = fopen("gameIDs.csv", "w+");
+		if (fp == NULL) {
+			perror("No se pudo abrir el archivo\n");
+			return 0;
+		}
 	}
+	unsigned int newid = 0;
+
+	if (fscanf(fp, "%d", &newid) == 1) {
+		newid++; fseek(fp, 0, SEEK_SET);
+		fprintf(fp, "%d", newid);
+		printf("ID de partida: %d\n", newid);
+	}
+	else printf("No se pudo leer el archivo.\n");
+
+	fclose(fp);
 
 	return newid;
 }
@@ -20,13 +35,19 @@ void Load() {
 	cout << "Introduce el ID de la partida que deseas cargar.\n";
 	cin >> id;
 	Match match;
-	match.LoadGame("saveFile.dat", id);
+	match.LoadGame("saveFile.csv", id);
 }
 
 void SimulationMatch() {
 	cout << "Partida simulada con exito\n";
 	Match match;
-	match.SaveGame("saveFile.dat", match.getId(), match.getPoints1(), match.getPoints2(), match.getPlayer1(), match.getPlayer2(), match.getBall());
+	unsigned int p1, p2;
+	srand(time(NULL));
+	p1 = 25;
+	p2 = rand()%24;
+	match.setPoints1(p1);
+	match.setPoints2(p2);
+	match.SaveGame("saveFile.csv", CreateGame(), match.getPoints1(), match.getPoints2(), match.getPlayer1(), match.getPlayer2(), match.getBall());
 }
 
 void MainMenu() {

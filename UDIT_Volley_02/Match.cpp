@@ -38,29 +38,33 @@ Ball Match::getBall() {
 	return ball;
 }
 
+void Match::setPoints1(unsigned int p) {
+	points[0] = p;
+}
+
+void Match::setPoints2(unsigned int p) {
+	points[0] = p;
+}
+
+
 void Match::LoadGame(const char* saveFile, unsigned int gameid) {
 	FILE* fp = fopen(saveFile, "r");
 
-	if (fp == nullptr) {
-		perror("No se pudo abrir el archivo\n");
-	}
+	if (fp == nullptr) perror("No se pudo abrir el archivo\n");
 
-	char line[256];
-	char search[256];
 	bool found = false;
-	sprintf(search, "Player ID: %u", gameid);
-	char first_data[256];
-	char second_data[256];
 
 	if (fp != 0){
-		while (fgets(line, sizeof(line), fp)) {
-			if (strstr(line, search) != NULL) {
-				printf(line);
+		while (fscanf(fp, "Match ID: %d; %d; %d; ", &matchData.id, &matchData.points[0], &matchData.points[1])) {
+			if (matchData.id == gameid) {
+				printf("ID: %d\n", matchData.id);
+				printf("Puntos J1: %d\n", matchData.points[0]);
+				printf("Puntos J2: %d\n", matchData.points[1]);
 				found = true;
-				fclose(fp);
 				break;
 			}
 		}
+		if (!found) printf("ID no encontrado en el archivo.\n");
 	}
 	fclose(fp);
 }
@@ -82,7 +86,7 @@ void Match::SaveGame(const char* saveFile, unsigned int i, unsigned int p1, unsi
 
 	if (fp != NULL) {
 		char buffer[256];
-		sprintf(buffer, "Player ID: %d\nPlayer01 Points: %d\nPlayer02 Points: %d\n", matchData.id, matchData.points[0], matchData.points[1]);
+		sprintf(buffer, "Match ID: %d; %d; %d; ", matchData.id, matchData.points[0], matchData.points[1]);
 		fputs(buffer, fp);
 		cout << "Escritura realizada con exito\n";
 	}

@@ -1,4 +1,3 @@
-﻿  Match.cpp
-F:\00_UDIT\TERCERO\ENTORNOS OPERATIVOS\PROYECTOS\UDIT_Volley_02\UDIT_Volley_2\UDIT_Volley_02\Match.cpp(52,7): warning C4101: 'first_data': variable local sin referencia
-F:\00_UDIT\TERCERO\ENTORNOS OPERATIVOS\PROYECTOS\UDIT_Volley_02\UDIT_Volley_2\UDIT_Volley_02\Match.cpp(53,7): warning C4101: 'second_data': variable local sin referencia
+﻿  UDIT_Volley_02.cpp
+F:\00_UDIT\TERCERO\ENTORNOS OPERATIVOS\PROYECTOS\UDIT_Volley_02\UDIT_Volley_2\UDIT_Volley_02\UDIT_Volley_02.cpp(45,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   UDIT_Volley_02.vcxproj -> F:\00_UDIT\TERCERO\ENTORNOS OPERATIVOS\PROYECTOS\UDIT_Volley_02\UDIT_Volley_2\x64\Debug\UDIT_Volley_02.exe

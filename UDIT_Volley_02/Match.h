@@ -18,4 +18,7 @@ public:
 	Player getPlayer1();
 	Player getPlayer2();
 	Ball getBall();
+
+	void setPoints1(unsigned int p);
+	void setPoints2(unsigned int p);
 };
