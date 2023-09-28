@@ -1,6 +1,7 @@
 #pragma warning (disable : 4996)
 #include <iostream>
 #include <stdlib.h>
+#include <conio.h>
 #include <time.h>
 #include "Match.h"
 #include "Player.h"
@@ -15,7 +16,7 @@ unsigned int CreateGame() {
 			perror("No se pudo abrir el archivo\n");
 			return 0;
 		}
-        fprintf(fp, 0);
+        fprintf(fp, "0");
 	}
 	unsigned int newid = 0;
 
@@ -37,10 +38,11 @@ void Load() {
 	cin >> id;
 	Match match;
 	match.LoadGame("saveFile.csv", id);
+	cout << "Partida cargada con exito, pulsa cualquier tecla para continuar\n";
+	_getch();
 }
 
 void SimulationMatch() {
-	cout << "Partida simulada con exito\n";
 	Match match;
 	unsigned int p1, p2, d;
 	srand(time(NULL));
@@ -51,6 +53,8 @@ void SimulationMatch() {
 	match.setPoints2(p2);
     match.setDuration(d);
 	match.SaveGame("saveFile.csv", CreateGame(), match.getPoints1(), match.getPoints2(), match.getPlayer1(), match.getPlayer2(), match.getBall(), match.getDuration());
+	cout << "Partida simulada con exito, pulsa cualquier tecla para continuar\n";
+	_getch();
 }
 
 void MainMenu() {
@@ -69,9 +73,11 @@ void MainMenu() {
 		switch (choice) {
 			case 2:
 				Load();
+				MainMenu();
 				break;
 			case 3:
 				SimulationMatch();
+				MainMenu();
 				break;
 		}
 	}
@@ -100,28 +106,6 @@ uint32_t file_size(const char* filename) {
 
 	return 0;
 }
-
-//Escribir en archivo de texto
-/*bool write_to_file(const char* filename, string line) {
-	if (file_exists(filename)) {
-		FILE* fp = fopen(filename, "a");
-		fp >> line;
-		fclose(fp);
-		return true;
-	}
-
-	else return false;
-}
-
-//Leer archivo de texto
-bool read_from_file(const char* filename, string line) {
-	if (file_exists(filename)) {
-		FILE* fp = fopen(filename, "w");
-		return true;
-	}
-
-	else return false;
-}*/
 
 int main(){
 	MainMenu();
