@@ -11,10 +11,11 @@ unsigned int CreateGame() {
 	FILE* fp = fopen("gameIDs.csv", "r+");
 	if (fp == nullptr) {
 		fp = fopen("gameIDs.csv", "w+");
-		if (fp == NULL) {
+		if (fp == nullptr) {
 			perror("No se pudo abrir el archivo\n");
 			return 0;
 		}
+        fprintf(fp, 0);
 	}
 	unsigned int newid = 0;
 
@@ -41,13 +42,15 @@ void Load() {
 void SimulationMatch() {
 	cout << "Partida simulada con exito\n";
 	Match match;
-	unsigned int p1, p2;
+	unsigned int p1, p2, d;
 	srand(time(NULL));
 	p1 = 25;
-	p2 = rand()%24;
+	p2 = rand() % 24;
+    d = rand() % 268;
 	match.setPoints1(p1);
 	match.setPoints2(p2);
-	match.SaveGame("saveFile.csv", CreateGame(), match.getPoints1(), match.getPoints2(), match.getPlayer1(), match.getPlayer2(), match.getBall());
+    match.setDuration(d);
+	match.SaveGame("saveFile.csv", CreateGame(), match.getPoints1(), match.getPoints2(), match.getPlayer1(), match.getPlayer2(), match.getBall(), match.getDuration());
 }
 
 void MainMenu() {

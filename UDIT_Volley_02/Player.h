@@ -9,5 +9,7 @@ public:
 	Player();
 	void Move();
 	void Jump();
+    short getPosX();
+    short getPosY();
 };
 
