@@ -10,7 +10,7 @@ class Player
 private:
 	short x = 0, y = 0;
 	char id = 0;
-	string name = "";
+	string name;
 public:
 	Player();
 	void Move();

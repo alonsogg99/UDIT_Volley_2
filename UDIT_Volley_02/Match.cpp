@@ -47,8 +47,8 @@ void Match::LoadGame(const char* saveFile, unsigned int gameid) {
 
 	bool found = false;
 
-	char* player0Name = matchData.player[0].getName();
-	char* player1Name = matchData.player[1].getName();
+	string player0Name = matchData.player[0].getName();
+	string player1Name = matchData.player[1].getName();
 	char player0ID = matchData.player[0].getId();
 	char player1ID = matchData.player[1].getId();
 
