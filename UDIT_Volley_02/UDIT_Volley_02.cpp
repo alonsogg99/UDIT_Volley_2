@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <time.h>
+#include <string>
 #include "Match.h"
 #include "Player.h"
 #include "Ball.h"
@@ -44,11 +45,21 @@ void Load() {
 
 void SimulationMatch() {
 	Match match;
-	unsigned int p1, p2, d;
+	unsigned int p1, p2, d, i1, i2;
 	srand(time(NULL));
 	p1 = 25;
 	p2 = rand() % 24;
     d = rand() % 268;
+	i1 = rand() % 999;
+	i2 = rand() % 999;
+	cout << "Introduce el nombre del Jugador 1:\n";
+	string name1;
+	cin >> name1;
+	cout << "Introduce el nombre del Jugador 2:\n";
+	string name2;
+	cin >> name2;
+	match.setPlayer1(i1, name1);
+	match.setPlayer2(i2, name2);
 	match.setPoints1(p1);
 	match.setPoints2(p2);
     match.setDuration(d);

@@ -21,6 +21,8 @@ public:
 	Ball getBall();
 	void setPoints1(unsigned int p);
 	void setPoints2(unsigned int p);
+	void setPlayer1(char i, string n);
+	void setPlayer2(char i, string n);
     unsigned int getDuration();
     void setDuration(unsigned int d);
 };
